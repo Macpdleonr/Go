@@ -24,5 +24,43 @@ func main() {
 	fmt.Printf("The year is %d",lessyear)
 	oldyear := 33
 	fmt.Printf("Old year is %d\n", lessyear)
+
+	/* Array */
+
+	var frutsList = [4] string {"Apple", "Banana", "Grapes", "Orange"}
+
+	fmt.Println(frutsList[1])
+
+	// countryList := [3] string {"USA", "UK", "India"}
+	countryList := [] string {"USA", "UK", "India"}
+	fmt.Println(countryList)
+
+	countryList[0] = "Peru"
+
+	fmt.Println(countryList)
+
+	append(countryList, "Spain")
+
+	fmt.Println(countryList)
+
+	countryList = append(countryList, "Portugal")
+
+	fmt.Println(countryList)
+
+	// Rangs
+
+	countryList2 := countryList[1:3]
+
+	fmt.Println(countryList2)
+
+	countryList3 := countryList[2:]
+
+	fmt.Println(countryList3)
+
+	countryList4 := countryList[:2]
+
+	fmt.Println(countryList4)
+
+
 	}
 
