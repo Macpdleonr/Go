@@ -4,7 +4,7 @@ import {
 	"fmt"
 }
 
-func main () {
+func Switch () {
 	var fruit string
 
 	fmt.Print("Enter a fruit name: ")
