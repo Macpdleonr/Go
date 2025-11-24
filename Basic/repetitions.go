@@ -5,7 +5,7 @@ import (
 	"string"
 )
 
-func main() {
+func repetitions() {
 
 	var sum int = 0;
 
