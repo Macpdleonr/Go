@@ -2,48 +2,45 @@ package main
 
 import "fmt"
 
+var functions = map[string] func(int, int) int{
 
+	"sum": func(a int, b int) int { return a + b },
+	
+	"rest": func(a int, b int) int { return a - b },
 
-func presentResultSum( f func(int, int)int, a int, b int) {
-	fmt.Println("For a = ", a," and b = ", b," the sum is : ", sum(a, b))
-}
+	"multiply": func(a int, b int) int { return a * b },
 
-func presentResultRest( f func(int, int)iSnt, a int, b int) {
-	fmt.Println("For a = ", a," and b = ", b," the rest is : ", rest(a, b))
+	"divide": func(a int, b int) int { return a / b },
 }
 
 func presentResult(operation string, a int, b int){
-	sum := func(a int, b int) int {
-		return a + b
+
+	f, exists := functions[operation]
+
+	if !exists {
+		fmt.Println("Operation ", operation, " not found")
+		return
 	}
-
-	rest := func(a int, b int) int {
-		return a - b
-	}
-
-	result := 0
-
-	if operation == "sum" {
-		result = sum(a, b)
-	} else if operation == "rest" {
-		result = rest(a, b)
-	}
-
-	fmt.Println("For a = ", a, " and b = ", b, " the ", operation," result is : ", result)
+	
+	fmt.Println("For a = ", a, " and b = ", b, " the ", operation," result is : ", f(a,b))
 }
 
 func main() {
 
-	
+	presentResult("sum",3, 4)
+	presentResult("sum",10, 20)
+	presentResult("sum",-55, 83)
 
+	presentResult("rest",5, 2)
+	presentResult("rest",100, 50)
+	presentResult("rest",80, 25)
 
+	presentResult("multiply",3, 4)
+	presentResult("multiply",10, 20)
+	presentResult("multiply",-5, 6)
 
-	presentResultSum("sum",3, 4)
-	presentResultSum("sum",10, 20)
-	presentResultSum("sum",-55, 83)
-
-	presentResultRest("rest",5, 2)
-	presentResultRest("rest",100, 50)
-	presentResultRest("rest",80, 25)
+	presentResult("divide",8, 2)
+	presentResult("divide",100, 5)
+	presentResult("divide",81, 9)
 
 }
